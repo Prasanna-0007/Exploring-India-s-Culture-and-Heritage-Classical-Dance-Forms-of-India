@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's Classical Dance Forms</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF9933, #FF5733);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.1;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+        }
+        
+        .map-container {
+            position: relative;
+            width: 60%;
+            margin: 0 auto;
+
+          
+        }
+        
+        .india-map {
+            width: 100%;
+            height: auto;
+            
+        }
+        
+        .hover-area {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+            background-color:transparent; 
+            border-radius: 4px;
+            opacity: 1;
+        }
+        
+        .hover-area:hover {
+            opacity: 1;
+        }
+        
+        .popup {
+            position: absolute;
+            width: 280px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 100;
+            display: none;
+            animation: fadeIn 0.2s ease-out;
+            border: 1px solid #eee;
+            pointer-events: none; /* Prevent popup from interfering with hover */
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .popup h3 {
+            margin-top: 0;
+            color: #FF5733;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .popup img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #eee;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #333, #222);
+            color: white;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        
+        .dance-overview {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #FF9933;
+        }
+        
+        .dance-overview h2 {
+            margin-top: 0;
+            color: #FF5733;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .popup {
+                width: 90%;
+                left: 5% !important;
+                right: 5% !important;
+                position: fixed;
+                top: 50% !important;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exploring India's Cultural Heritage</h1>
+        <p>Classical Dance Forms of India</p>
+    </header>
+
+    <div class="container">
+        <p class="intro-text">Classical dances of India beautifully combine storytelling, emotion, and rhythm, with each movement reflecting the richness of the country’s ancient traditions.These dance forms are deeply rooted in culture and spirituality, expressing myths, devotion, and artistic elegance passed down through generations.</p>
+    
+        
+        <div class="map-container">
+            <img src="indiamap6.jpg" alt="India Map" class="india-map" id="indiaMap" onerror="this.src='indiamap6.jpg'">
+            
+            <!-- Hover areas for each state -->
+            <div class="hover-area" style="top: 79%; left: 35%; width: 8%; height: 12%;" data-dance="bharatanatyam" data-url="tamilnadu.html"></div> <!-- Tamil Nadu -->
+            <div class="hover-area" style="top: 27%; left: 31%; width: 5%; height: 6%;" data-dance="phag" data-url="haryana.html"></div> <!-- Tamil Nadu -->
+            <div class="hover-area" style="top: 69%; left: 25%; width: 3%; height: 3%;" data-dance="fugdi" data-url="goa.html"></div> <!-- Goa -->
+            <div class="hover-area" style="top: 23%; left: 39%; width: 5%; height: 6%;" data-dance="choliya" data-url="Uttarakhand.html"></div> <!-- UttaraKhand -->
+            <div class="hover-area" style="top: 21%; left: 28%; width: 6%; height: 6%;" data-dance="bhangra" data-url="punjab.html"></div> <!-- Panjab -->
+            <div class="hover-area" style="top: 18%; left: 33%; width: 6%; height: 6%;" data-dance="nati" data-url="himachalpradesh.html"></div> <!-- Himachal Pradesh -->
+            <div class="hover-area" style="top: 30%; left: 38%; width: 13%; height: 11%;" data-dance="kathak" data-url="uttarpradesh.html"></div> <!-- Uttar Pradesh -->
+            <div class="hover-area" style="top: 79%; left: 29%; width: 5%; height: 12%;" data-dance="kathakali" data-url="kerala.html"></div> <!-- Kerala -->
+            <div class="hover-area" style="top: 66%; left: 35%; width: 10%; height: 12%;" data-dance="kuchipudi" data-url="andhrapradesh.html"></div> <!-- Andhra Pradesh -->
+            <div class="hover-area" style="top: 50%; left: 52%; width: 12%; height: 10%;" data-dance="odissi" data-url="orissa.html"></div> <!-- Odisha -->
+            <div class="hover-area" style="top: 39%; left: 79%; width: 4%; height: 4%;" data-dance="manipuri" data-url="manipur.html"></div> <!-- Manipur -->
+            <div class="hover-area" style="top: 35%; left: 70%; width: 10%; height: 3%;" data-dance="sattriya" data-url="assam.html"></div> <!-- Assam -->
+            <div class="hover-area" style="top: 7%; left: 27%; width: 16%; height: 12%;" data-dance="rouf" data-url="jammuandkashmir.html"></div> <!-- Jammu & Kashmir -->
+            <div class="hover-area" style="top: 58%; left: 36%; width: 8%; height: 10%;" data-dance="perini" data-url="telangana.html"></div> <!-- Telangana -->
+            <div class="hover-area" style="top: 66%; left: 28%; width: 8%; height: 15%;" data-dance="yakshagana" data-url="karnataka.html"></div> <!-- Karnataka -->
+            <div class="hover-area" style="top: 53%; left: 21%; width: 16%; height: 13%;" data-dance="lavani" data-url="maharstra.html"></div> <!-- Maharashtra -->
+            <div class="hover-area" style="top: 48%; left: 45%; width: 7%; height: 12%;" data-dance="panthi" data-url="chattisgarh.html"></div> <!-- Chhattisgarh -->
+            <div class="hover-area" style="top: 42%; left: 31%; width: 16%; height: 10%;" data-dance="maach" data-url="madhyapradesh.html"></div> <!-- Madhya Pradesh -->
+            <div class="hover-area" style="top: 43%; left: 12%; width: 16%; height: 10%;" data-dance="garba" data-url="gujarat.html"></div> <!-- Gujarat -->
+            <div class="hover-area" style="top: 32%; left: 15%; width: 23%; height: 10%;" data-dance="ghoomar" data-url="rajasthan.html"></div> <!-- Rajasthan -->
+            <div class="hover-area" style="top: 43%; left: 54%; width: 8%; height: 6%;" data-dance="chhau" data-url="jharkhand.html"></div> <!-- Jharkhand -->
+            <div class="hover-area" style="top: 44%; left: 61%; width: 7%; height: 6%;" data-dance="gaudiyaNritya" data-url="westbengal.html"></div> <!-- West Bengal -->
+            <div class="hover-area" style="top: 37%; left: 54%; width: 9%; height: 5%;" data-dance="jhumar" data-url="bihar.html"></div> <!-- Bihar -->
+            <div class="hover-area" style="top: 43%; left: 77%; width: 4%; height: 6%;" data-dance="cheraw" data-url="mizoram.html"></div> <!-- Mizoram -->
+            <div class="hover-area" style="top: 42%; left: 73%; width: 3%; height: 5%;" data-dance="garia" data-url="tripura.html"></div> <!-- Tripura -->
+            <div class="hover-area" style="top: 38%; left: 69%; width: 7%; height: 3%;" data-dance="lahao" data-url="meghalaya.html"></div> <!-- Meghalaya -->
+            <div class="hover-area" style="top: 35%; left: 81%; width: 3%; height: 3%;" data-dance="kuki" data-url="nagaland.html"></div> <!-- Nagaland -->
+            <div class="hover-area" style="top: 25%; left: 74%; width: 17%; height:9%;" data-dance="buiya" data-url="arunachalpradesh.html"></div> <!-- Arunachal Pradesh -->
+            <div class="hover-area" style="top: 32%; left: 65%; width: 2%; height: 5%;" data-dance="singhi" data-url="sikkim.html"></div> <!-- Sikkim -->
+
+            <!-- Popup Container -->
+            <div class="popup" id="dancePopup">
+                <h3 id="popupTitle">Dance Form</h3>
+                <img id="popupImage" src="" alt="Dance Form Image">
+                <p id="popupDescription">Description will appear here.</p>
+                <p id="popupOrigin"><strong>Origin:</strong> <span></span></p>
+            </div>
+        </div>
+        <h2>India's Classical Dance Forms</h2>
+       
+        <p>Each of the  recognized classical dance styles originates from a different region, preserving unique cultural traditions through intricate footwork, hand gestures (mudras), and emotive facial expressions.</p>
+            <p>Andhra Pradesh-Kuchipudi</p>       
+            <p>Arunachal Pradesh-Buiya dance </p>
+            <p>Assam-Sattriya </p>                       
+            <p>Chhattisgarh-Panthi </p>
+            <p>Bihar-Jhumar Dance   </p>               
+            <p>Goa-Fugdi</p>
+            <p>Gujarat-Garba</p>             
+            <p>Haryana-Phag Dance</p>
+            <p>Himachal Pradesh-Nati dance</p>           
+            <p>Jharkhand-Chhau dance</p>
+            <p>Karnataka-Yakshagana</p>       
+            <p>Kerala-Kathakali</p>
+            <p>Madhya Pradesh-Maanch</p>              
+            <p>Maharashtra-Lavani dance</p>
+            <p>Manipur-Manipuri</p>            
+            <p>Meghalaya-Loho</p>
+            <p>Mizoram-Cheraw</p>                  
+            <p>Nagaland</p>
+            <p>Odisha-Odissi</p>                    
+            <p>Punjab-Bhangra</p>
+            <p>Rajasthan-Ghoomar</p>                     
+            <p>Sikkim</p>
+            <p>Tamil Nadu-Bharatanatyam</p>              
+            <p>Telangana-Perini Shivathandavam</p>
+            <p>Tripura-Garia dance</p>          
+            <p>Uttar Pradesh-Kathak Dance</p>
+            <p>Uttarakhand-Choliya dance</p>             
+            <p>West Bengal-Gaudiya Nritya</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 India Cultural Heritage Project. All rights reserved.</p>
+        <p>Celebrating India's rich artistic traditions since ancient times.</p>
+    </footer>
+    
+    
+    <script>
+        // Dance form data with placeholder images
+        const danceForms = {
+            bharatanatyam: {
+                title: "Bharatanatyam",
+                image: "bharatanatyam.jpg",
+                description: "Bharatanatyam is a classical dance form from Tamil Nadu, rooted in Hindu temple rituals and devotional expression.It is known for its sculptural poses, rhythmic footwork, and storytelling through expressive gestures.",
+                origin: "Tamil Nadu"
+            },
+            kathak: {
+                title: "Kathak",
+                image: "kathak2.jpg",
+                description: "Kathak is a classical dance form from Uttar Pradesh, blending Hindu temple traditions and Mughal influence, known for its intricate footwork, graceful spins, and expressive storytelling.",
+                origin: "Uttar Pradesh"
+            },
+            kathakali: {
+                title: "Kathakali",
+                image: "kathakali.jpg",
+                description: "Kathakali is a classical dance form from Kerala, rooted in Hindu epics and temple arts, known for its elaborate costumes, vibrant makeup, and dramatic storytelling through facial expressions and gestures.",
+                origin: "Kerala"
+            },
+            fugdi: {
+                title: "Fugdi",
+                image: "fugdi.jpg",
+                description: "Fugdi is a folk dance performed by Goan women during religious festivals and important life events. With clapping, rhythmic breathing, and circular formations, it reflects joy and togetherness. The dance is a symbol of feminine energy, community bonding, and cultural heritage, especially among rural and tribal groups in Goa.",
+                origin: "Goa"
+            },
+            kuchipudi: {
+                title: "Kuchipudi",
+                image: "kuchipidi3.jpg",
+                description: "Kuchipudi is a classical dance form from Andhra Pradesh, known for its intricate footwork, expressive gestures, and fluid movements, often depicting stories from Hindu mythology.",
+                origin: "Andhra Pradesh"
+            },
+            odissi: {
+                title: "Odissi",
+                image: "odissi.jpg",
+                description: "Odissi is a classical dance form from Odisha, rooted in Hindu temple rituals and devotion to Lord Jagannath, known for its graceful body bends, lyrical movements, and sculptural poses reflecting divine themes.",
+                origin: "Odisha"
+            },
+            manipuri: {
+                title: "Manipuri",
+                image: "manipuri.jpg",
+                description: "Manipuri is a classical dance form from Manipur, inspired by Vaishnavism and devotional themes centered around Lord Krishna and Radha, known for its soft, flowing movements, gentle expressions, and graceful circular patterns.",
+                origin: "Manipur"
+            },
+            sattriya: {
+                title: "Sattriya",
+                image: "sattriya2.jpg",
+                description: "Sattriya originated in Assam and is deeply rooted in the Vaishnavite monasteries (Satras).Its theme is devotional, with a specialty in expressive footwork, intricate hand gestures, and facial expressions.",
+                origin: "Assam"
+            },
+            rouf: {
+                title: "Rouf",
+                image: "rouf.jpg",
+                description: "Rouf is a traditional dance form from Kashmir, performed during festivals and joyous occasions, known for its graceful, rhythmic movements, clapping, and circular formations.",
+                origin: "Jammu & Kashmir"
+            },
+            perini: {
+                title: "Perini",
+                image: "perini.jpg",
+                description: "Perini is a classical dance form from Telangana, associated with Lord Shiva and performed to invoke his blessings, known for its energetic, rhythmic footwork, vibrant movements, and devotional expressions.",
+                origin: "Telangana"
+            },
+                yakshagana: {
+            title: "Yakshagana",
+            image: "yakshagana.jpg",
+            description: "Yakshagana is a traditional dance-drama form from Karnataka, rooted in Hindu mythology and epics, known for its colorful costumes, dramatic expressions, and powerful storytelling through music, dance, and dialogue.",
+            origin: "Karnataka"
+            },
+            lavani: {
+            title: "Lavani",
+            image: "lavani.jpg",
+            description: "Lavani is a traditional dance form from Maharashtra, known for its expressive movements and fast-paced rhythms, often performed to the beats of dholki and tasha, and typically focuses on themes of love, longing, and celebration.",
+            origin: "Maharashtra"
+            },
+            panthi: {
+            title: "Panthi",
+            image: "panthi.jpg",
+            description: "Panthi is a traditional dance form from Chhattisgarh, performed during harvest festivals and religious celebrations, known for its energetic movements, simple footwork, and group performances that reflect the region's culture and agricultural traditions.",
+            origin: "Chhattisgarh"
+            },
+            maach: {
+            title: "Maach",
+            image: "maanch.jpg", // Example image URL – replace if needed
+            description: "Maach is a traditional dance-drama form from Madhya Pradesh, often performed during festivals and religious occasions, known for its theatrical storytelling, elaborate costumes, and dramatic performances that portray mythological stories and historical events..",
+             origin: "Madhya Pradesh"
+            },
+            garba: {
+            title: "Garba",
+            image: "garba.jpg", // Example image
+            description: "**Garba** is a traditional dance form from **Gujarat**, performed during the **Navratri festival** to honor Goddess Durga, known for its circular movements, rhythmic clapping, and energetic group performances.",
+            origin: "Gujarat"
+            },
+            ghoomar: {
+            title: "Ghoomar",
+            image: "ghoomar.jpg", // Example image
+            description: "Ghoomar, a traditional Rajasthani dance originating from the Bhil and Rajput communities, is a devotional and festive dance characterized by graceful twirls, symbolizing joy and celebration.",
+            origin: "Rajasthan"
+            },
+            chhau: {
+             title: "Chhau",
+             image: "chahu.jpg", // Example image
+             description: "Chhau is a traditional dance form from Odisha, West Bengal, and Jharkhand, rooted in Hindu mythology and performed during festivals and rituals, known for its martial art movements, elaborate masks, and powerful storytelling through vigorous dance.",
+             origin: "Jharkhand"
+             },
+             gaudiyaNritya: {
+             title: "Gaudiya Nritya",
+             image: "gaudiyanrithya.jpg", // Example image
+             description: "Gaudiya Nritya is a classical dance form from West Bengal, rooted in the Vaishnavism tradition and associated with the worship of Radha and Krishna, known for its graceful movements, expressive facial gestures, and devotional storytelling through music and dance.",
+             origin: "West Bengal"
+            },
+            jhumar: {
+            title: "Jhumar",
+            image: "jhumar.jpg", // Example image
+            description: "Jhumar is a traditional folk dance of Bihar and nearby regions, usually performed during harvest or festive occasions. Characterized by slow, graceful movements and rhythmic clapping, Jhumar celebrates rural life and community bonding.",
+            origin: "Bihar"
+            },
+            phag: {
+            title: "Phag",
+            image: "phag.jpg",
+            description: "Phag is a traditional folk dance of Haryana performed during the spring festival of Holi. Celebrating the harvest, dancers express joy and social harmony. Accompanied by dhol and folk songs, it promotes cultural bonding, rural vibrancy, and the celebratory spirit of agrarian communities in the region.",
+            origin: "Haryana"
+},
+            cheraw: {
+            title: "Cheraw",
+            image: "cheraw.jpg", // Bamboo dance image
+            description: "Cheraw, also known as the Bamboo Dance, is a traditional folk dance of Mizoram. Dancers step gracefully between moving bamboo staves that are rhythmically clapped together, showcasing agility and coordination. It's one of the most famous dances from the northeast of India.",
+            origin: "Mizoram"
+            },
+            garia: {
+            title: "Garia Dance",
+            image: "garia.jpg",
+            description: "The Garia dance is performed in Tripura to celebrate the Garia festival, which prays for a good harvest. It's performed by both young boys and girls, and is accompanied by rhythmic drumming and chanting. The dance expresses joy, devotion, and community harmony.",
+            origin: "Tripura"
+            },
+            lahao: {
+            title: "Laho Dance",
+            image: "loho.jpg",
+            description: "Laho is a traditional dance of Meghalaya performed during community celebrations. Men and women, often dressed in vibrant tribal attire, link arms and move in rhythmic patterns to music and cheerful clapping. It's a symbol of social unity and festivity.",
+            origin: "Meghalaya"
+            },
+            kuki: {
+            title: "Kuki Dance",
+            image: "kuki.jpg",
+            description: "The Kuki Dance is a vibrant traditional dance of the Kuki tribe in Nagaland, performed during festivals and ceremonies. Dancers wear colorful traditional attire and use rhythmic steps accompanied by drum beats and chanting, reflecting tribal unity and cultural pride.",
+    origin: "Nagaland"
+},
+buiya: {
+    title: "Buiya Dance",
+    image: "buiya.jpg",
+    description: "The Buiya Dance is a popular folk dance of the Digaru Mishmi tribe of Arunachal Pradesh. It is performed during festivals and social gatherings to express joy and community bonding. The dancers, in traditional attire, form a circle and move rhythmically to folk tunes and instruments.",
+    origin: "Arunachal Pradesh"
+},
+singhi: {
+    title: "Singhi Chaam",
+    image: "singicham.jpg",
+    description: "Singhi Chaam is a masked dance of Sikkim that represents the mythical snow lion, the guardian deity of the state. Performed during Buddhist festivals, dancers don elaborate lion costumes and execute acrobatic movements to depict power and grace, celebrating Sikkim’s cultural and spiritual heritage.",
+    origin: "Sikkim"
+},
+nati: {
+    title: "Nati",
+    image: "nati.jpg",
+    description: "Nati is a popular folk dance of Himachal Pradesh, performed during festivals and celebrations. Recognized in the Guinness Book of Records for its mass participation, it showcases the traditional costumes, musical instruments, and storytelling. Nati represents community unity, happiness, and the rich cultural legacy of the hill people.",
+    origin: "Himachal Pradesh"
+},
+choliya: {
+    title: "Choliya",
+    image: "choliya.jpg",
+    description: "he Choliya dance is a traditional folk dance originating from the Kumaon region of Uttarakhand, India. It is a sword dance that depicts martial art traditions and is often performed during weddings and other celebratory occasions. The dance is a performance of martial arts-inspired movements, with dancers using swords and shields, and sometimes accompanied by regional brass and percussion instruments. ",
+    origin: "Uttarakhand"
+},
+bhangra: {
+    title: "Bhangra",
+    image: "bhangra.jpg",
+    description: "Bhangra is an energetic folk dance of Punjab, originally performed during harvest. Accompanied by dhol beats and spirited moves, it celebrates joy, strength, and rural pride. Now a global symbol of Punjabi culture, Bhangra connects communities through vibrant rhythm, expression, and festive enthusiasm.",    
+    origin: "Punjab"
+}
+
+        };
+        
+        // Get DOM elements
+        const hoverAreas = document.querySelectorAll('.hover-area');
+        const popup = document.getElementById('dancePopup');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupImage = document.getElementById('popupImage');
+        const popupDescription = document.getElementById('popupDescription');
+        const popupOrigin = document.querySelector('#popupOrigin span');
+        
+        const indiaMap = document.getElementById('indiaMap');
+        
+        // Add fallback for images
+        popupImage.onerror = function() {
+            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23f0f0f0"><rect width="100" height="100"/><text x="50" y="50" font-family="Arial" font-size="10" text-anchor="middle" fill="%23999">Image not available</text></svg>';
+        };
+        
+        // Function to position popup near hover area
+        function positionPopup(area) {
+            const mapRect = document.querySelector('.map-container').getBoundingClientRect();
+            const areaRect = area.getBoundingClientRect();
+            
+            // Calculate center of hover area
+            const centerX = areaRect.left - mapRect.left + (areaRect.width / 2);
+            const centerY = areaRect.top - mapRect.top + (areaRect.height / 2);
+            
+            // Adjust position to prevent overflow
+            let left = centerX;
+            let top = centerY;
+            
+            if (left > mapRect.width / 2) {
+                left -= 300; // position to the left
+            } else {
+                left += 20; // position to the right
+            }
+            
+            if (top > mapRect.height / 2) {
+                top -= 220; // position above
+            } else {
+                top += 20; // position below
+            }
+            
+            // Ensure popup stays within map container
+            left = Math.max(20, Math.min(left, mapRect.width - 320));
+            top = Math.max(20, Math.min(top, mapRect.height - 320));
+            
+            popup.style.left = left + 'px';
+            popup.style.top = top + 'px';
+        }
+        
+        // Add hover events to each area
+        hoverAreas.forEach(area => {
+            area.addEventListener('mouseenter', function() {
+                const danceForm = this.getAttribute('data-dance');
+                const data = danceForms[danceForm];
+                
+                // Set popup content
+                popupTitle.textContent = data.title;
+                popupImage.src = data.image;
+                popupImage.alt = data.title;
+                popupDescription.textContent = data.description;
+                popupOrigin.textContent = data.origin;
+                
+                // Position and show popup
+                positionPopup(this);
+                popup.style.display = 'block';
+            });
+            
+            area.addEventListener('mouseleave', function() {
+                popup.style.display = 'none';
+            });
+             // New: handle click to open dance page
+    area.addEventListener('click', function () {
+        const url = this.getAttribute('data-url');
+        if (url) {
+            window.open(url, '_blank');
+        }
+    });
+        });
+       
+        
+        // Hide popup when mouse leaves map container
+        document.querySelector('.map-container').addEventListener('mouseleave', function() {
+            popup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
