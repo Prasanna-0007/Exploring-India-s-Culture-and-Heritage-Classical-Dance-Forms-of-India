@@ -46,7 +46,7 @@ Credits
 
 Live Demo
 
-https://Prasanna-0007.github.io/india-interactive-map
+ https://prasanna-0007.github.io/Exploring-India-s-Culture-and-Heritage-Classical-Dance-Forms-of-India/
 
 Repository Link
 
